@@ -1,0 +1,109 @@
+{
+  "recorded_on": "2026-11-03",
+  "fixture": {
+    "synthetic_data_only": true,
+    "age": 8,
+    "plan_entries": 0,
+    "catalog": "shared catalog"
+  },
+  "request_timing_semantics": "Cumulative completion times since turn start, not individual call durations.",
+  "limitation": "Individual runs, not latency percentiles. The timed-out run may have continued provider work after fallback returned.",
+  "probes": [
+    {
+      "ai_mode": "openai",
+      "coach_engine": "crew",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "synthetic_data_only": true,
+      "provider_authentication": true,
+      "model_available": true,
+      "passed": false,
+      "mapped_by": "keywords",
+      "suggestion_count": 2,
+      "cited_sources": 2,
+      "elapsed_seconds": 51.68,
+      "provider_requests": [
+        {
+          "http_status": 200,
+          "schema": "ParentRisk"
+        },
+        {
+          "http_status": 200,
+          "schema": "Triage"
+        },
+        {
+          "http_status": 200,
+          "schema": "Brief"
+        },
+        {
+          "http_status": 200,
+          "schema": "Plan"
+        },
+        {
+          "http_status": 200,
+          "schema": "SafetyVerdict"
+        }
+      ],
+      "coach_timeout_seconds": 50
+    },
+    {
+      "passed": true,
+      "ai_mode": "openai",
+      "coach_engine": "crew",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "coach_timeout_seconds": 65,
+      "mapped_by": "ai",
+      "suggestion_count": 1,
+      "cited_sources": 0,
+      "elapsed_seconds": 45.08,
+      "provider_requests": [
+        {
+          "http_status": 200,
+          "schema": "ParentRisk",
+          "completion_seconds_since_turn_start": 1.08
+        },
+        {
+          "http_status": 200,
+          "schema": "Triage",
+          "completion_seconds_since_turn_start": 5.68
+        },
+        {
+          "http_status": 200,
+          "schema": "Brief",
+          "completion_seconds_since_turn_start": 19.88
+        },
+        {
+          "http_status": 200,
+          "schema": "Plan",
+          "completion_seconds_since_turn_start": 25.11
+        },
+        {
+          "http_status": 200,
+          "schema": "SafetyVerdict",
+          "completion_seconds_since_turn_start": 30.31
+        },
+        {
+          "http_status": 200,
+          "schema": "Fit",
+          "completion_seconds_since_turn_start": 34.6
+        },
+        {
+          "http_status": 200,
+          "schema": "Plan",
+          "completion_seconds_since_turn_start": 40.57
+        },
+        {
+          "http_status": 200,
+          "schema": "SafetyVerdict",
+          "completion_seconds_since_turn_start": 42.73
+        },
+        {
+          "http_status": 200,
+          "schema": "Fit",
+          "completion_seconds_since_turn_start": 45.07
+        }
+      ],
+      "synthetic_data_only": true
+    }
+  ]
+}

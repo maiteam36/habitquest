@@ -1,0 +1,60 @@
+{
+  "checked_on": "2026-11-03",
+  "catalog_url": "https://tokenfactory.nebius.com/models/catalog",
+  "metadata_url": "https://tokenfactory.nebius.com/api/public/models_info",
+  "deprecation_notice_url": "https://docs.tokenfactory.nebius.com/november-2026-deprecation-notice.md",
+  "deprecation_notice_effective_date": "2026-11-09",
+  "shortlist_listed_in_that_retirement_notice": false,
+  "model_inference_calls_made_for_this_analysis": 0,
+  "caveat": "Public metadata does not establish account access, exact schema compatibility, stable processing region, effective reasoning controls, app quality or app response latency. Missing JSON-mode tags do not establish incompatibility.",
+  "models": [
+    {
+      "model_id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "catalog_status": "active",
+      "input_usd_per_million_tokens": 0.1,
+      "output_usd_per_million_tokens": 0.3,
+      "catalog_json_mode_tag": true,
+      "catalog_function_calling": true
+    },
+    {
+      "model_id": "openai/gpt-oss-120b",
+      "catalog_status": "active",
+      "input_usd_per_million_tokens": 0.15,
+      "output_usd_per_million_tokens": 0.6,
+      "catalog_json_mode_tag": true,
+      "catalog_function_calling": true
+    },
+    {
+      "model_id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "catalog_status": "active",
+      "input_usd_per_million_tokens": 0.3,
+      "output_usd_per_million_tokens": 1.2,
+      "catalog_json_mode_tag": false,
+      "catalog_function_calling": true
+    },
+    {
+      "model_id": "MiniMaxAI/MiniMax-M3.1-Flash",
+      "catalog_status": "active",
+      "input_usd_per_million_tokens": 0.15,
+      "output_usd_per_million_tokens": 0.6,
+      "catalog_json_mode_tag": false,
+      "catalog_function_calling": true
+    },
+    {
+      "model_id": "zai-org/GLM-5.3-Flash",
+      "catalog_status": "active",
+      "input_usd_per_million_tokens": 0.15,
+      "output_usd_per_million_tokens": 0.5,
+      "catalog_json_mode_tag": false,
+      "catalog_function_calling": true
+    },
+    {
+      "model_id": "nvidia/Nemotron-3_5-Lightning",
+      "catalog_status": "active",
+      "input_usd_per_million_tokens": 0.06,
+      "output_usd_per_million_tokens": 0.24,
+      "catalog_json_mode_tag": false,
+      "catalog_function_calling": true
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "synthetic_only": true,
+  "measurement": "HTTP round-trip to the local backend; not browser paint latency",
+  "models": [
+    {
+      "role": "parent_risk",
+      "provider_group": "legacy",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "api_mode": "chat_completions",
+      "reasoning_effort": "low",
+      "max_output_tokens": 4000,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "coach",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 1600,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "output_safety",
+      "provider_group": "legacy",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "api_mode": "chat_completions",
+      "reasoning_effort": "low",
+      "max_output_tokens": 4000,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "habit_generation",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 2800,
+      "timeout_seconds": 45.0,
+      "max_retries": 0
+    }
+  ],
+  "coach_checks": [
+    {
+      "case": "homework_help",
+      "text": "Homework stalls when the child gets stuck. They need help asking a clear question.",
+      "quality_criterion": "Direct help-seeking or learning-question goal; concrete, supported advice.",
+      "http_status": 200,
+      "roundtrip_ms": 3053.1,
+      "reply": "I can't reach my full coaching notes right now. Could you tell me a bit more about when this happens?",
+      "outcome": "retrieval_unavailable",
+      "mapped_by": "manual",
+      "logical_calls": null,
+      "generation_passes": 0,
+      "safety_revision": false,
+      "risk_status": "no_risk",
+      "provider_attempts": {
+        "parent_risk": 1,
+        "embedding": 1,
+        "pinecone": 1
+      },
+      "timings": {
+        "embedding_ms": 1359.2915842309594,
+        "pinecone_ms": 474.7090423479676,
+        "hydration_ms": 0.47559943050146103,
+        "masking_ms": 1.748356968164444,
+        "risk_ms": 1052.8893219307065,
+        "retrieval_ms": 1836.8465872481465,
+        "total_ms": 2891.84114895761,
+        "context_ms": 73.99025280028582,
+        "persistence_ms": 39.76834286004305,
+        "request_ms": 3005.7051088660955
+      },
+      "token_usage": {},
+      "goals": []
+    },
+    {
+      "case": "easier_followup",
+      "text": "Make it easier, please.",
+      "quality_criterion": "Retain the homework topic, lower effort; do not pad with unrelated new goals.",
+      "http_status": 200,
+      "roundtrip_ms": 2048.3,
+      "reply": "I can't reach my full coaching notes right now. Could you tell me a bit more about when this happens?",
+      "outcome": "retrieval_unavailable",
+      "mapped_by": "manual",
+      "logical_calls": null,
+      "generation_passes": 0,
+      "safety_revision": false,
+      "risk_status": "no_risk",
+      "provider_attempts": {
+        "parent_risk": 1,
+        "embedding": 1,
+        "pinecone": 1
+      },
+      "timings": {
+        "embedding_ms": 514.648362994194,
+        "pinecone_ms": 233.46632160246372,
+        "hydration_ms": 0.37121959030628204,
+        "masking_ms": 0.18930621445178986,
+        "risk_ms": 1198.289243504405,
+        "retrieval_ms": 749.00858476758,
+        "total_ms": 1947.7162789553404,
+        "context_ms": 58.72097332030535,
+        "persistence_ms": 37.190393544733524,
+        "request_ms": 2043.684933334589
+      },
+      "token_usage": {},
+      "goals": []
+    },
+    {
+      "case": "topic_change",
+      "text": "Now a different issue: screen time ends in arguments. We need a realistic stopping point.",
+      "quality_criterion": "Switch to media stopping or transition support; avoid unrelated homework advice.",
+      "http_status": 200,
+      "roundtrip_ms": 1590.1,
+      "reply": "I can't reach my full coaching notes right now. Could you tell me a bit more about when this happens?",
+      "outcome": "retrieval_unavailable",
+      "mapped_by": "manual",
+      "logical_calls": null,
+      "generation_passes": 0,
+      "safety_revision": false,
+      "risk_status": "no_risk",
+      "provider_attempts": {
+        "parent_risk": 1,
+        "embedding": 1,
+        "pinecone": 1
+      },
+      "timings": {
+        "embedding_ms": 466.4522120729089,
+        "pinecone_ms": 225.99197458475828,
+        "hydration_ms": 0.3488827496767044,
+        "masking_ms": 0.24639349430799484,
+        "risk_ms": 799.7713154181838,
+        "retrieval_ms": 693.2501178234816,
+        "total_ms": 1493.4647278860211,
+        "context_ms": 51.35061778128147,
+        "persistence_ms": 41.24855622649193,
+        "request_ms": 1586.1615287140012
+      },
+      "token_usage": {},
+      "goals": []
+    }
+  ],
+  "habit_check": {
+    "http_status": 200,
+    "roundtrip_ms": 12849.3,
+    "goal_id": "hqg-3485089313fb8646f1695921",
+    "status": "unavailable",
+    "outcome": "unavailable",
+    "message": "I couldn't finish checking these habits. Please try a new request.",
+    "source": {
+      "source_id": "learning-homework--ask-about-one-stuck-spot--a6-8",
+      "concept_id": "learning-homework--ask-about-one-stuck-spot",
+      "category_id": "learning-homework",
+      "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+      "record_sha256": "e6a14ece5f09159bd1fa6a11612c9ba3affe53a4d6929fe4b570d468ae78c12f",
+      "catalog_version": "0.1.0"
+    },
+    "timings": {
+      "total_ms": 12749.8,
+      "writer_ms": 12746.8
+    },
+    "logical_calls": 2,
+    "provider_attempts": {
+      "habit_generation": 2
+    },
+    "token_usage": {
+      "input_tokens": 3327,
+      "total_tokens": 4365,
+      "output_tokens": 1038
+    },
+    "drafts": []
+  },
+  "cleanup": true,
+  "budget_before": "0.3247019800000000137438",
+  "budget_after": "0.4637973400000000137438"
+}

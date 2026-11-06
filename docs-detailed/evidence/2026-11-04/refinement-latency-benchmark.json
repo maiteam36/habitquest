@@ -1,0 +1,425 @@
+{
+  "synthetic_only": true,
+  "measurement": "In-process ASGI request elapsed time; includes real providers and DB, excludes local TCP and browser paint",
+  "models": [
+    {
+      "role": "coach",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 1600,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "output_safety",
+      "provider_group": "legacy",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "api_mode": "chat_completions",
+      "reasoning_effort": "low",
+      "max_output_tokens": 4000,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "habit_generation",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 2800,
+      "timeout_seconds": 45.0,
+      "max_retries": 0
+    }
+  ],
+  "normal_operations": {
+    "coach": [
+      "coach",
+      "output_safety"
+    ],
+    "habit_generation": [
+      "habit_generation"
+    ],
+    "retrieval": [
+      "embedding",
+      "pinecone"
+    ]
+  },
+  "coach_checks": [
+    {
+      "case": "homework_help",
+      "text": "Homework stalls when the child gets stuck. They need help asking a clear question.",
+      "quality_criterion": "Direct help-seeking or learning-question goal; concrete, supported advice.",
+      "http_status": 200,
+      "roundtrip_ms": 6691.7,
+      "reply": "Try a calm, repeatable prompt: “Show me the part that’s confusing,” then help them turn it into one question, such as “What does this instruction mean?” Let them point, draw, or say it in their own words—no need for a polished question before helping. First check whether they understand the task and have had the teaching they need; if not, clarify or teach that part together.",
+      "outcome": "recommendations",
+      "mapped_by": "ai",
+      "logical_calls": 2,
+      "generation_passes": 1,
+      "safety_revision": false,
+      "risk_status": "local_only",
+      "provider_attempts": {
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 1,
+        "output_safety": 1
+      },
+      "timings": {
+        "preparation_ms": 0.48685912042856216,
+        "generation_ms": 2892.488634213805,
+        "local_validation_ms": 1.6140574589371681,
+        "safety_ms": 1729.314618743956,
+        "embedding_ms": 1037.223101593554,
+        "pinecone_ms": 832.1331609040499,
+        "hydration_ms": 3.568289801478386,
+        "masking_ms": 1.2459177523851395,
+        "risk_ms": 0.028024427592754364,
+        "retrieval_ms": 1874.9010264873505,
+        "total_ms": 6509.047431871295,
+        "context_ms": 76.80722419172525,
+        "persistence_ms": 54.53536659479141,
+        "request_ms": 6640.585524961352
+      },
+      "token_usage": {
+        "input_tokens": 4300,
+        "output_tokens": 405,
+        "total_tokens": 4705
+      },
+      "goals": [
+        {
+          "goal_id": "hqg-3485089313fb8646f1695921",
+          "title": "Ask a specific learning question",
+          "description": "Practice indicating the exact part of a learning activity that needs explanation or support.",
+          "reason": "Fits the stated need: an adult can scaffold asking about one specific confusing part, without requiring precise wording before offering help.",
+          "source_ref": {
+            "source_id": "learning-homework--ask-about-one-stuck-spot--a6-8",
+            "concept_id": "learning-homework--ask-about-one-stuck-spot",
+            "category_id": "learning-homework",
+            "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+            "record_sha256": "e6a14ece5f09159bd1fa6a11612c9ba3affe53a4d6929fe4b570d468ae78c12f",
+            "catalog_version": "0.1.0"
+          }
+        }
+      ]
+    },
+    {
+      "case": "easier_followup",
+      "text": "Make it easier, please.",
+      "quality_criterion": "Retain the homework topic, lower effort; do not pad with unrelated new goals.",
+      "http_status": 200,
+      "roundtrip_ms": 4335.6,
+      "reply": "Let them point to the confusing bit—no need to explain it yet. You can ask, “This part?” and then help, or show one example of how to ask: “What does this word mean?” Check first that the directions make sense and the work has been taught. If not, clarify or teach it together. Keep the practice brief and reassuring; asking for help shouldn’t depend on trying and failing first.",
+      "outcome": "recommendations",
+      "mapped_by": "ai",
+      "logical_calls": 2,
+      "generation_passes": 1,
+      "safety_revision": false,
+      "risk_status": "local_only",
+      "provider_attempts": {
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 1,
+        "output_safety": 1
+      },
+      "timings": {
+        "preparation_ms": 0.4104282706975937,
+        "generation_ms": 2244.714690372348,
+        "local_validation_ms": 1.5272609889507294,
+        "safety_ms": 1118.486943654716,
+        "embedding_ms": 635.581087321043,
+        "pinecone_ms": 190.88441040366888,
+        "hydration_ms": 3.158009611070156,
+        "masking_ms": 0.21577440202236176,
+        "risk_ms": 0.030040740966796875,
+        "retrieval_ms": 830.6911336258054,
+        "total_ms": 4199.083073996007,
+        "context_ms": 67.96321459114552,
+        "persistence_ms": 62.797644175589085,
+        "request_ms": 4329.929600469768
+      },
+      "token_usage": {
+        "input_tokens": 4533,
+        "output_tokens": 418,
+        "total_tokens": 4951
+      },
+      "goals": [
+        {
+          "goal_id": "hqg-3485089313fb8646f1695921",
+          "title": "Ask a specific learning question",
+          "description": "Practice indicating the exact part of a learning activity that needs explanation or support.",
+          "reason": "This fits the need to identify one confusing part, while allowing pointing and adult help rather than requiring a polished question.",
+          "source_ref": {
+            "source_id": "learning-homework--ask-about-one-stuck-spot--a6-8",
+            "concept_id": "learning-homework--ask-about-one-stuck-spot",
+            "category_id": "learning-homework",
+            "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+            "record_sha256": "e6a14ece5f09159bd1fa6a11612c9ba3affe53a4d6929fe4b570d468ae78c12f",
+            "catalog_version": "0.1.0"
+          }
+        }
+      ]
+    },
+    {
+      "case": "topic_change",
+      "text": "Now a different issue: screen time ends in arguments. We need a realistic stopping point.",
+      "quality_criterion": "Switch to media stopping or transition support; avoid unrelated homework advice.",
+      "http_status": 200,
+      "roundtrip_ms": 3996.4,
+      "reply": "Try agreeing on the stopping point before screen time begins: choose a clear event that fits the activity, such as finishing this episode or reaching the next natural save point. Tell your child what happens next, and give a calm reminder before that point. If a game or activity can’t stop easily, choose a more realistic stopping event together. Keep the agreement flexible for accessibility or other family needs.",
+      "outcome": "recommendations",
+      "mapped_by": "ai",
+      "logical_calls": 2,
+      "generation_passes": 1,
+      "safety_revision": false,
+      "risk_status": "local_only",
+      "provider_attempts": {
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 1,
+        "output_safety": 1
+      },
+      "timings": {
+        "preparation_ms": 0.38776639848947525,
+        "generation_ms": 2454.6482050791383,
+        "local_validation_ms": 1.9787931814789772,
+        "safety_ms": 707.3082253336906,
+        "embedding_ms": 295.02535331994295,
+        "pinecone_ms": 418.76224521547556,
+        "hydration_ms": 3.3629117533564568,
+        "masking_ms": 0.27821213006973267,
+        "risk_ms": 0.03195274621248245,
+        "retrieval_ms": 717.7992844954133,
+        "total_ms": 3884.8392721265554,
+        "context_ms": 62.99290806055069,
+        "persistence_ms": 43.77191141247749,
+        "request_ms": 3991.679253987968
+      },
+      "token_usage": {
+        "input_tokens": 4545,
+        "output_tokens": 344,
+        "total_tokens": 4889
+      },
+      "goals": [
+        {
+          "goal_id": "hqg-d7237d3962a056fbf481bb45",
+          "title": "Agree on a realistic media stopping point",
+          "description": "Before recreational media starts, agree on one feasible stopping event and the support for ending.",
+          "reason": "This directly supports a realistic, agreed stopping event before recreational media starts, with adult help matched to an eight-year-old.",
+          "source_ref": {
+            "source_id": "screen-balance--agree-stopping-point--a6-8",
+            "concept_id": "screen-balance--agree-stopping-point",
+            "category_id": "screen-balance",
+            "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+            "record_sha256": "5a77fedf6010ed2aad12c4ee9dafd94b16b0480309ec969fb263b2e81ba4ba8a",
+            "catalog_version": "0.1.0"
+          }
+        }
+      ]
+    }
+  ],
+  "habit_check": {
+    "http_status": 200,
+    "roundtrip_ms": 4612.2,
+    "goal_id": "hqg-3485089313fb8646f1695921",
+    "parent_instruction": "Use a gesture during homework and avoid extra materials.",
+    "status": "ready",
+    "outcome": "ready",
+    "message": "These habits passed local checks. Review them before adding.",
+    "source": {
+      "source_id": "learning-homework--ask-about-one-stuck-spot--a6-8",
+      "concept_id": "learning-homework--ask-about-one-stuck-spot",
+      "category_id": "learning-homework",
+      "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+      "record_sha256": "e6a14ece5f09159bd1fa6a11612c9ba3affe53a4d6929fe4b570d468ae78c12f",
+      "catalog_version": "0.1.0"
+    },
+    "timings": {
+      "total_ms": 4514.9,
+      "writer_ms": 4508.6
+    },
+    "logical_calls": 1,
+    "provider_attempts": {
+      "habit_generation": 1
+    },
+    "token_usage": {
+      "input_tokens": 2646,
+      "total_tokens": 3065,
+      "output_tokens": 419
+    },
+    "validation_failures": [],
+    "failure_code": null,
+    "validation_mode": "local",
+    "drafts": [
+      {
+        "cue": "When one part of your homework feels tricky.",
+        "why": "A specific gesture can help you show where you need explanation or support.",
+        "steps": [
+          "Point to the part that feels tricky.",
+          "Use your agreed gesture to ask for help."
+        ],
+        "title": "Point out one tricky homework part",
+        "kid_hint": "You can ask for help without struggling alone first.",
+        "strategy": "Respond promptly and warmly; accept gestures, allow processing time, and provide teaching or arrange school follow-up.",
+        "help_text": "You can ask for help, take a break, watch, or stop at any time; you can also decline.",
+        "kid_title": "Show the tricky part",
+        "materials": [],
+        "completion": "You pointed to one tricky part of your homework.",
+        "recurrence": "weekly",
+        "description": "Practice showing one confusing part of homework with a gesture, then get adult support or teaching.",
+        "instruction": "Point to one part of your homework that feels tricky.",
+        "parent_setup": "Check that the homework is accessible and help is available; agree on a simple gesture together.",
+        "parent_guidance": {
+          "coach": "Model pointing to one specific part and respond promptly to any help signal.",
+          "if_hard": "Offer help, a smaller practice, watching, declining, or a break without penalty.",
+          "observe": "Notice whether the gesture is usable and welcome; adjust support rather than scoring performance.",
+          "prepare": "Check that the activity is accessible and choose a gesture your child can use comfortably."
+        },
+        "estimated_seconds": 120
+      }
+    ]
+  },
+  "cleanup": true,
+  "synthetic_parsed_calls": [
+    {
+      "role": "coach",
+      "parsed": {
+        "mode": "advice",
+        "reply": "Try a calm, repeatable prompt: “Show me the part that’s confusing,” then help them turn it into one question, such as “What does this instruction mean?” Let them point, draw, or say it in their own words—no need for a polished question before helping. First check whether they understand the task and have had the teaching they need; if not, clarify or teach that part together.",
+        "question": "",
+        "goals": [
+          {
+            "goal_id": "hqg-3485089313fb8646f1695921",
+            "reason": "Fits the stated need: an adult can scaffold asking about one specific confusing part, without requiring precise wording before offering help."
+          }
+        ]
+      }
+    },
+    {
+      "role": "output_safety",
+      "parsed": {
+        "safe": true,
+        "problems": []
+      },
+      "display_payload": {
+        "reply": "Try a calm, repeatable prompt: “Show me the part that’s confusing,” then help them turn it into one question, such as “What does this instruction mean?” Let them point, draw, or say it in their own words—no need for a polished question before helping. First check whether they understand the task and have had the teaching they need; if not, clarify or teach that part together.",
+        "question": "",
+        "cards": [],
+        "goals": [
+          {
+            "goal_id": "hqg-3485089313fb8646f1695921",
+            "reason": "Fits the stated need: an adult can scaffold asking about one specific confusing part, without requiring precise wording before offering help."
+          }
+        ],
+        "changes": []
+      }
+    },
+    {
+      "role": "coach",
+      "parsed": {
+        "mode": "advice",
+        "reply": "Let them point to the confusing bit—no need to explain it yet. You can ask, “This part?” and then help, or show one example of how to ask: “What does this word mean?” Check first that the directions make sense and the work has been taught. If not, clarify or teach it together. Keep the practice brief and reassuring; asking for help shouldn’t depend on trying and failing first.",
+        "question": "",
+        "goals": [
+          {
+            "goal_id": "hqg-3485089313fb8646f1695921",
+            "reason": "This fits the need to identify one confusing part, while allowing pointing and adult help rather than requiring a polished question."
+          }
+        ]
+      }
+    },
+    {
+      "role": "output_safety",
+      "parsed": {
+        "safe": true,
+        "problems": []
+      },
+      "display_payload": {
+        "reply": "Let them point to the confusing bit—no need to explain it yet. You can ask, “This part?” and then help, or show one example of how to ask: “What does this word mean?” Check first that the directions make sense and the work has been taught. If not, clarify or teach it together. Keep the practice brief and reassuring; asking for help shouldn’t depend on trying and failing first.",
+        "question": "",
+        "cards": [],
+        "goals": [
+          {
+            "goal_id": "hqg-3485089313fb8646f1695921",
+            "reason": "This fits the need to identify one confusing part, while allowing pointing and adult help rather than requiring a polished question."
+          }
+        ],
+        "changes": []
+      }
+    },
+    {
+      "role": "coach",
+      "parsed": {
+        "mode": "advice",
+        "reply": "Try agreeing on the stopping point before screen time begins: choose a clear event that fits the activity, such as finishing this episode or reaching the next natural save point. Tell your child what happens next, and give a calm reminder before that point. If a game or activity can’t stop easily, choose a more realistic stopping event together. Keep the agreement flexible for accessibility or other family needs.",
+        "question": "",
+        "goals": [
+          {
+            "goal_id": "hqg-d7237d3962a056fbf481bb45",
+            "reason": "This directly supports a realistic, agreed stopping event before recreational media starts, with adult help matched to an eight-year-old."
+          }
+        ]
+      }
+    },
+    {
+      "role": "output_safety",
+      "parsed": {
+        "safe": true,
+        "problems": []
+      },
+      "display_payload": {
+        "reply": "Try agreeing on the stopping point before screen time begins: choose a clear event that fits the activity, such as finishing this episode or reaching the next natural save point. Tell your child what happens next, and give a calm reminder before that point. If a game or activity can’t stop easily, choose a more realistic stopping event together. Keep the agreement flexible for accessibility or other family needs.",
+        "question": "",
+        "cards": [],
+        "goals": [
+          {
+            "goal_id": "hqg-d7237d3962a056fbf481bb45",
+            "reason": "This directly supports a realistic, agreed stopping event before recreational media starts, with adult help matched to an eight-year-old."
+          }
+        ],
+        "changes": []
+      }
+    },
+    {
+      "role": "habit_generation",
+      "parsed": {
+        "items": [
+          {
+            "title": "Point out one tricky homework part",
+            "kid_title": "Show the tricky part",
+            "kid_hint": "You can ask for help without struggling alone first.",
+            "description": "Practice showing one confusing part of homework with a gesture, then get adult support or teaching.",
+            "instruction": "Point to one part of your homework that feels tricky.",
+            "why": "A specific gesture can help you show where you need explanation or support.",
+            "parent_setup": "Check that the homework is accessible and help is available; agree on a simple gesture together.",
+            "strategy": "Respond promptly and warmly; accept gestures, allow processing time, and provide teaching or arrange school follow-up.",
+            "estimated_seconds": 120,
+            "steps": [
+              "Point to the part that feels tricky.",
+              "Use your agreed gesture to ask for help."
+            ],
+            "materials": [],
+            "help_text": "You can ask for help, take a break, watch, or stop at any time; you can also decline.",
+            "cue": "When one part of your homework feels tricky.",
+            "completion": "You pointed to one tricky part of your homework.",
+            "parent_guidance": {
+              "prepare": "Check that the activity is accessible and choose a gesture your child can use comfortably.",
+              "coach": "Model pointing to one specific part and respond promptly to any help signal.",
+              "if_hard": "Offer help, a smaller practice, watching, declining, or a break without penalty.",
+              "observe": "Notice whether the gesture is usable and welcome; adjust support rather than scoring performance."
+            },
+            "recurrence": "weekly"
+          }
+        ]
+      }
+    }
+  ],
+  "budget_before": "0.5933531800000000137438",
+  "source_goals_before": 2,
+  "budget_after": "0.7324485400000000137438",
+  "source_goals_after": 3
+}

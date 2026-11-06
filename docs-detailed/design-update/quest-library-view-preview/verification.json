@@ -1,0 +1,24 @@
+{
+  "sourceFilesUnchanged": true,
+  "sourceHash": "2b1230f96743acf009b4dc683fb7d6642f21affa735f83497012c86e55f073cf",
+  "desktop": {
+    "overflow": false,
+    "missingImages": [],
+    "goalGroups": 2,
+    "quests": 3
+  },
+  "mobile": {
+    "overflow": false,
+    "missingImages": []
+  },
+  "unknownRoutes": [],
+  "pageErrors": [],
+  "apiRequests": 12,
+  "nonGetRequests": 0,
+  "fixtures": "Synthetic Alex and Robin; all API requests intercepted; external requests blocked.",
+  "screenshots": [
+    "01-quests-default-desktop.png",
+    "02-by-goal-desktop.png",
+    "03-by-goal-mobile.png"
+  ]
+}

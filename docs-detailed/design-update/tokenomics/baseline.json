@@ -1,0 +1,403 @@
+{
+  "reviewed_on": "2026-11-05",
+  "status": "Planning evidence only; no new live provider calls",
+  "currency": "USD",
+  "pricing_scope": "Standard short-context rates; illustrative costs assume uncached input; tier/region/cache-write modifiers require separate matching.",
+  "sources": {
+    "luna": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+    "openai_tiers": "https://developers.openai.com/api/docs/pricing",
+    "embedding": "https://developers.openai.com/api/docs/models/text-embedding-3-small",
+    "nebius": "https://tokenfactory.nebius.com/api/public/models_info",
+    "pinecone": "https://docs.pinecone.io/guides/cost/understand-cost",
+    "pinecone_pricing": "https://www.pinecone.io/pricing/",
+    "pinecone_request_usage": "https://docs.pinecone.io/guides/cost/check-usage-per-request"
+  },
+  "verified_rates": [
+    {
+      "provider": "OpenAI",
+      "model": "gpt-6-luna",
+      "input_usd_per_million": 0.1,
+      "cached_input_usd_per_million": 0.01,
+      "output_usd_per_million": 0.5,
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna"
+    },
+    {
+      "provider": "Nebius",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "input_usd_per_million": 0.3,
+      "cached_input_usd_per_million": 0.006,
+      "output_usd_per_million": 1.2,
+      "source": "https://tokenfactory.nebius.com/api/public/models_info"
+    },
+    {
+      "provider": "OpenAI",
+      "model": "text-embedding-3-small",
+      "input_usd_per_million": 0.02,
+      "source": "https://developers.openai.com/api/docs/models/text-embedding-3-small"
+    }
+  ],
+  "safe_current_configuration": {
+    "AI_MODE": "openai",
+    "COACH_ENGINE": "refined",
+    "COACH_PROVIDER": "planning",
+    "COACH_MODEL": "gpt-6-luna",
+    "HABIT_GENERATION_MODEL": "gpt-6-luna",
+    "OPENAI_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "OUTPUT_SAFETY_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "OPENAI_EMBEDDING_MODEL": "text-embedding-3-small",
+    "OPENAI_EMBEDDING_DIMENSIONS": 512,
+    "RETRIEVAL_MODE": "pinecone",
+    "PLANNING_BUDGET_ENABLED": true,
+    "PLANNING_TEST_BUDGET_USD": 5,
+    "AI_DAILY_LIMIT": 100
+  },
+  "historical_samples": [
+    {
+      "activity": "coach",
+      "source_file": "../../evidence/2026-11-04/refinement-latency-benchmark.json",
+      "source_index": 0,
+      "measurement": "In-process ASGI request elapsed time; includes real providers and DB, excludes local TCP and browser paint",
+      "http_status": 200,
+      "roundtrip_ms": 6691.7,
+      "timings": {
+        "preparation_ms": 0.48685912042856216,
+        "generation_ms": 2892.488634213805,
+        "local_validation_ms": 1.6140574589371681,
+        "safety_ms": 1729.314618743956,
+        "embedding_ms": 1037.223101593554,
+        "pinecone_ms": 832.1331609040499,
+        "hydration_ms": 3.568289801478386,
+        "masking_ms": 1.2459177523851395,
+        "risk_ms": 0.028024427592754364,
+        "retrieval_ms": 1874.9010264873505,
+        "total_ms": 6509.047431871295,
+        "context_ms": 76.80722419172525,
+        "persistence_ms": 54.53536659479141,
+        "request_ms": 6640.585524961352
+      },
+      "logical_calls": 2,
+      "provider_attempts": {
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 1,
+        "output_safety": 1
+      },
+      "token_usage": {
+        "input_tokens": 4300,
+        "output_tokens": 405,
+        "total_tokens": 4705
+      },
+      "token_attribution": "Combined Luna writer and DeepSeek reviewer; cannot split by model. Embedding usage not retained.",
+      "chat_cost_uncached_allocation_bound_usd": [
+        0.0006325,
+        0.001776
+      ],
+      "complete_cost_usd": null
+    },
+    {
+      "activity": "coach",
+      "source_file": "../../evidence/2026-11-04/refinement-latency-benchmark.json",
+      "source_index": 1,
+      "measurement": "In-process ASGI request elapsed time; includes real providers and DB, excludes local TCP and browser paint",
+      "http_status": 200,
+      "roundtrip_ms": 4335.6,
+      "timings": {
+        "preparation_ms": 0.4104282706975937,
+        "generation_ms": 2244.714690372348,
+        "local_validation_ms": 1.5272609889507294,
+        "safety_ms": 1118.486943654716,
+        "embedding_ms": 635.581087321043,
+        "pinecone_ms": 190.88441040366888,
+        "hydration_ms": 3.158009611070156,
+        "masking_ms": 0.21577440202236176,
+        "risk_ms": 0.030040740966796875,
+        "retrieval_ms": 830.6911336258054,
+        "total_ms": 4199.083073996007,
+        "context_ms": 67.96321459114552,
+        "persistence_ms": 62.797644175589085,
+        "request_ms": 4329.929600469768
+      },
+      "logical_calls": 2,
+      "provider_attempts": {
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 1,
+        "output_safety": 1
+      },
+      "token_usage": {
+        "input_tokens": 4533,
+        "output_tokens": 418,
+        "total_tokens": 4951
+      },
+      "token_attribution": "Combined Luna writer and DeepSeek reviewer; cannot split by model. Embedding usage not retained.",
+      "chat_cost_uncached_allocation_bound_usd": [
+        0.0006623,
+        0.0018615
+      ],
+      "complete_cost_usd": null
+    },
+    {
+      "activity": "coach",
+      "source_file": "../../evidence/2026-11-04/refinement-latency-benchmark.json",
+      "source_index": 2,
+      "measurement": "In-process ASGI request elapsed time; includes real providers and DB, excludes local TCP and browser paint",
+      "http_status": 200,
+      "roundtrip_ms": 3996.4,
+      "timings": {
+        "preparation_ms": 0.38776639848947525,
+        "generation_ms": 2454.6482050791383,
+        "local_validation_ms": 1.9787931814789772,
+        "safety_ms": 707.3082253336906,
+        "embedding_ms": 295.02535331994295,
+        "pinecone_ms": 418.76224521547556,
+        "hydration_ms": 3.3629117533564568,
+        "masking_ms": 0.27821213006973267,
+        "risk_ms": 0.03195274621248245,
+        "retrieval_ms": 717.7992844954133,
+        "total_ms": 3884.8392721265554,
+        "context_ms": 62.99290806055069,
+        "persistence_ms": 43.77191141247749,
+        "request_ms": 3991.679253987968
+      },
+      "logical_calls": 2,
+      "provider_attempts": {
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 1,
+        "output_safety": 1
+      },
+      "token_usage": {
+        "input_tokens": 4545,
+        "output_tokens": 344,
+        "total_tokens": 4889
+      },
+      "token_attribution": "Combined Luna writer and DeepSeek reviewer; cannot split by model. Embedding usage not retained.",
+      "chat_cost_uncached_allocation_bound_usd": [
+        0.0006265,
+        0.0017763
+      ],
+      "complete_cost_usd": null
+    },
+    {
+      "activity": "habit_batch",
+      "source_file": "../../evidence/2026-11-04/refinement-latency-benchmark.json",
+      "measurement": "In-process ASGI request elapsed time; includes real providers and DB, excludes local TCP and browser paint",
+      "http_status": 200,
+      "roundtrip_ms": 4612.2,
+      "timings": {
+        "total_ms": 4514.9,
+        "writer_ms": 4508.6
+      },
+      "logical_calls": 1,
+      "provider_attempts": {
+        "habit_generation": 1
+      },
+      "token_usage": {
+        "input_tokens": 2646,
+        "total_tokens": 3065,
+        "output_tokens": 419
+      },
+      "useful_choices": 1,
+      "model": "gpt-6-luna",
+      "estimated_uncached_chat_cost_usd": 0.0004741,
+      "cost_status": "Observed tokens at uncached list price; cache detail absent; not invoice reconciled."
+    },
+    {
+      "activity": "coach",
+      "source_file": "../../evidence/2026-11-05/reliability-live-coach.json",
+      "source_index": 0,
+      "measurement": "HTTP round-trip to the local backend; not browser paint latency",
+      "http_status": 200,
+      "roundtrip_ms": 11727.4,
+      "timings": {
+        "preparation_ms": 0.4261797294020653,
+        "generation_ms": 4806.2103521078825,
+        "local_validation_ms": 1.7838580533862114,
+        "safety_ms": 4637.476436793804,
+        "embedding_ms": 1494.4610372185707,
+        "pinecone_ms": 629.6138567849994,
+        "hydration_ms": 4.740645177662373,
+        "masking_ms": 1.0499311611056328,
+        "risk_ms": 0.05012098699808121,
+        "retrieval_ms": 2130.794160068035,
+        "total_ms": 11589.168563485146,
+        "context_ms": 70.61422057449818,
+        "persistence_ms": 61.07624061405659,
+        "request_ms": 11720.940044149756
+      },
+      "logical_calls": 2,
+      "provider_attempts": {
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 1,
+        "output_safety": 1
+      },
+      "token_usage": {
+        "input_tokens": 4783,
+        "output_tokens": 609,
+        "total_tokens": 5392
+      },
+      "token_attribution": "Combined Luna writer and DeepSeek reviewer; cannot split by model. Embedding usage not retained.",
+      "chat_cost_uncached_allocation_bound_usd": [
+        0.0007828,
+        0.0021657
+      ],
+      "complete_cost_usd": null
+    },
+    {
+      "activity": "habit_batch",
+      "source_file": "../../evidence/2026-11-05/reliability-live-coach.json",
+      "measurement": "HTTP round-trip to the local backend; not browser paint latency",
+      "http_status": 200,
+      "roundtrip_ms": 10708.0,
+      "timings": {
+        "total_ms": 10613.9,
+        "writer_ms": 10605.1
+      },
+      "logical_calls": 1,
+      "provider_attempts": {
+        "habit_generation": 1
+      },
+      "token_usage": {
+        "input_tokens": 2751,
+        "total_tokens": 3836,
+        "output_tokens": 1085
+      },
+      "useful_choices": 3,
+      "model": "gpt-6-luna",
+      "estimated_uncached_chat_cost_usd": 0.0008176,
+      "cost_status": "Observed tokens at uncached list price; cache detail absent; not invoice reconciled."
+    },
+    {
+      "activity": "habit_batch",
+      "source_file": "../../evidence/2026-11-05/reliability-live-device-parking.json",
+      "measurement": "In-process ASGI request elapsed time; includes real providers and DB, excludes local TCP and browser paint",
+      "http_status": 200,
+      "roundtrip_ms": 10347.0,
+      "timings": {
+        "total_ms": 10232.7,
+        "writer_ms": 10142.0
+      },
+      "logical_calls": 1,
+      "provider_attempts": {
+        "habit_generation": 1
+      },
+      "token_usage": {
+        "input_tokens": 2728,
+        "total_tokens": 3697,
+        "output_tokens": 969
+      },
+      "useful_choices": 3,
+      "model": "gpt-6-luna",
+      "estimated_uncached_chat_cost_usd": 0.0007573,
+      "cost_status": "Observed tokens at uncached list price; cache detail absent; not invoice reconciled."
+    }
+  ],
+  "illustrative_scenarios": {
+    "recent_batch_sample_n": 2,
+    "recent_batch_mean_uncached_usd": 0.00078745,
+    "current_three_choice_reservation_usd": 0.0289192,
+    "reservation_to_observed_cost_ratios": [
+      35.37084148727984,
+      38.1872441568731
+    ],
+    "three_goal_nine_choice_chat_cost_usd": [
+      0.00314515,
+      0.00452805
+    ],
+    "four_goal_twelve_choice_chat_cost_usd": [
+      0.0039326,
+      0.0053155
+    ],
+    "five_coach_four_batch_session_credits": 14,
+    "five_coach_four_batch_session_chat_cost_usd": [
+      0.0070638,
+      0.0139783
+    ],
+    "exclusions": [
+      "Embedding and Pinecone usage",
+      "Corrections and retries",
+      "Missing usage",
+      "Shared infrastructure and fixed charges",
+      "Taxes or invoice adjustments"
+    ],
+    "population_average_or_percentiles_established": false
+  },
+  "retrieval_and_credit_reference": {
+    "status": "Planning assumptions, not observed historical retrieval usage or verified account billing",
+    "verified_list_rates": {
+      "embedding_input_usd_per_million": 0.02,
+      "pinecone_standard_ru_usd_per_million_range": [
+        16,
+        18
+      ],
+      "pinecone_enterprise_ru_usd_per_million_range": [
+        24,
+        27
+      ],
+      "pinecone_standard_enterprise_egress_overage_usd_per_gb": 0.1,
+      "sources": [
+        "https://developers.openai.com/api/docs/models/text-embedding-3-small",
+        "https://www.pinecone.io/pricing/"
+      ]
+    },
+    "account_plan_verified": false,
+    "precise_historical_retrieval_usage_available": false,
+    "api_read_units_precision": "Rounded upward to whole RUs; precise account/index totals needed for reconciliation",
+    "assumed_lookup": {
+      "embedding_input_tokens": 100,
+      "reported_read_units": 1,
+      "ru_usd_per_million": 18,
+      "egress_bytes": 20000,
+      "bytes_per_gb": 1000000000,
+      "egress_list_equivalent_usd_per_gb": 0.1
+    },
+    "estimated_components_usd": {
+      "embedding": 2e-06,
+      "search": 1.8e-05,
+      "egress_list_equivalent": 2e-06,
+      "retrieval_total": 2.2e-05
+    },
+    "coach_chat_plus_retrieval_usd": [
+      0.0008048,
+      0.0021877
+    ],
+    "three_goal_nine_choice_chat_plus_retrieval_usd": [
+      0.00316715,
+      0.00455005
+    ],
+    "four_goal_twelve_choice_chat_plus_retrieval_usd": [
+      0.0039546,
+      0.0053375
+    ],
+    "five_coach_four_batch_session_chat_plus_retrieval_usd": [
+      0.0071738,
+      0.0140883
+    ],
+    "seven_sessions_per_day_usd": [
+      0.0502166,
+      0.0986181
+    ],
+    "thirty_days_usd": [
+      1.506498,
+      2.958543
+    ],
+    "credit_policy": {
+      "reference_usd_per_credit": 0.0015,
+      "semantics": "Planning conversion; no redeemable cash value; accepted fixed activity quote changes only through policy revision",
+      "rounding": "Ceil combined direct reference cost once, floor 1 for useful credit-bearing parent activities",
+      "coach_reference_total_usd": 0.0021877,
+      "recommended_coach_credits": 2,
+      "batch_reference_total_usd": 0.00078745,
+      "recommended_batch_credits": 1,
+      "100_ru_sensitivity_coach_cost_usd": 0.0039697,
+      "100_ru_sensitivity_coach_credits": 3
+    },
+    "exclusions": [
+      "Corrections and retries in example quantities",
+      "Shared infrastructure, storage and catalog ingestion",
+      "Other helper activity",
+      "Taxes and invoice adjustments"
+    ]
+  }
+}

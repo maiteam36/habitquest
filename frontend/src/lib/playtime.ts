@@ -1,0 +1,27 @@
+/**
+ * Kid-mode time limit: a parent picks how many minutes a day each child may spend in the app.
+ * Kid mode counts the time while it's on screen; when time is up the child sees a break
+ * screen, and only a parent (with the PIN) can add more minutes for that day.
+ */
+import type { Child, Family } from "./family";
+
+/** Daily kid-mode time limits a parent can choose, in minutes (0 means no limit). */
+export const APP_LIMIT_OPTIONS = [0, 15, 20, 30, 45, 60]; // 0 = no limit
+/** How long before the limit the child sees a "time is nearly up" warning. */
+export const WARN_SECONDS = 120;
+
+/** Seconds of kid mode this child has used on this day. */
+export const appUsedSeconds = (child: Child, day: string) => child.appSeconds[day] ?? 0;
+
+/** Today's allowance in minutes (limit plus any parent extension), or null when there is no limit. */
+export function appAllowance(family: Family, child: Child, day: string): number | null {
+  if (!family.settings.appLimit) return null;
+  return family.settings.appLimit + (child.appExtraMinutes[day] ?? 0);
+}
+
+/** Seconds left today, or null when there is no limit. Never below 0. */
+export function appSecondsLeft(family: Family, child: Child, day: string): number | null {
+  const allowance = appAllowance(family, child, day);
+  return allowance === null ? null : Math.max(0, allowance * 60 - appUsedSeconds(child, day));
+}
+

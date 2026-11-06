@@ -1,0 +1,273 @@
+{
+  "synthetic_only": true,
+  "planned_max_planning_reservation_usd": 0.06607792,
+  "measurement": "HTTP round-trip to the local backend; not browser paint latency",
+  "models": [
+    {
+      "role": "coach",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 1600,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "output_safety",
+      "provider_group": "legacy",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "api_mode": "chat_completions",
+      "reasoning_effort": "low",
+      "max_output_tokens": 4000,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "habit_generation",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 2800,
+      "timeout_seconds": 45.0,
+      "max_retries": 0
+    }
+  ],
+  "normal_operations": {
+    "coach": [
+      "coach",
+      "output_safety"
+    ],
+    "habit_generation": [
+      "habit_generation"
+    ],
+    "retrieval": [
+      "embedding",
+      "pinecone"
+    ]
+  },
+  "coach_checks": [
+    {
+      "case": "screen_balance",
+      "text": "Entertainment screen time is hard to stop. We would like a realistic stopping point, parking the device, and a gentle transition to an offline activity.",
+      "quality_criterion": "Three or four relevant choices when supported; include concrete media stopping/parking and transition support.",
+      "http_status": 200,
+      "roundtrip_ms": 11727.4,
+      "reply": "A small plan agreed before screen time can make stopping feel more predictable and less abrupt.\n1. Before starting, choose a realistic stopping event together, such as the end of an episode or match.\n2. Pick a wanted offline activity for afterward; check whether they’d rather eat, rest, connect, or have quiet time.\n3. Agree where the device will pause, while keeping it available for communication, learning, accessibility, or safety needs.",
+      "outcome": "recommendations",
+      "mapped_by": "ai",
+      "logical_calls": 2,
+      "generation_passes": 1,
+      "safety_revision": false,
+      "risk_status": "local_only",
+      "provider_attempts": {
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 1,
+        "output_safety": 1
+      },
+      "timings": {
+        "preparation_ms": 0.4261797294020653,
+        "generation_ms": 4806.2103521078825,
+        "local_validation_ms": 1.7838580533862114,
+        "safety_ms": 4637.476436793804,
+        "embedding_ms": 1494.4610372185707,
+        "pinecone_ms": 629.6138567849994,
+        "hydration_ms": 4.740645177662373,
+        "masking_ms": 1.0499311611056328,
+        "risk_ms": 0.05012098699808121,
+        "retrieval_ms": 2130.794160068035,
+        "total_ms": 11589.168563485146,
+        "context_ms": 70.61422057449818,
+        "persistence_ms": 61.07624061405659,
+        "request_ms": 11720.940044149756
+      },
+      "token_usage": {
+        "input_tokens": 4783,
+        "output_tokens": 609,
+        "total_tokens": 5392
+      },
+      "goals": [
+        {
+          "goal_id": "hqg-5d28bd73d0976002912510ad",
+          "title": "Agree on a realistic media stopping point",
+          "description": "Before recreational media starts, agree on one feasible stopping event and the support for ending.",
+          "reason": "Directly supports agreeing on a feasible endpoint and what help will make stopping manageable, without assuming a universal time limit.",
+          "source_ref": {
+            "source_id": "screen-balance--agree-stopping-point--a11-13",
+            "concept_id": "screen-balance--agree-stopping-point",
+            "category_id": "screen-balance",
+            "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+            "record_sha256": "3b216c5dbb64f7274c8edb53fc9c4cc8cc67a132255da956024c6bba9d92df38",
+            "catalog_version": "0.1.0"
+          }
+        },
+        {
+          "goal_id": "hqg-5f5d7a90caca7603cb5d5ab8",
+          "title": "Choose an appealing next activity after media",
+          "description": "Prepare a wanted offline option to bridge the end of recreational media.",
+          "reason": "Offers a preferred offline bridge after media, while checking that it fits the child’s actual need at that moment.",
+          "source_ref": {
+            "source_id": "screen-balance--offline-bridge--a11-13",
+            "concept_id": "screen-balance--offline-bridge",
+            "category_id": "screen-balance",
+            "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+            "record_sha256": "e23699da734948335c162d117e88278049bfbebb041c63fc9581004149fa8147",
+            "catalog_version": "0.1.0"
+          }
+        },
+        {
+          "goal_id": "hqg-cfe08383bcfff20330b73a9f",
+          "title": "Use a shared device parking agreement",
+          "description": "Place an entertainment device in an agreed spot for a particular shared or sleep-protecting moment.",
+          "reason": "Matches the requested device-parking step; agree on a specific pause and preserve access needed for safety or other uses.",
+          "source_ref": {
+            "source_id": "screen-balance--shared-device-parking--a11-13",
+            "concept_id": "screen-balance--shared-device-parking",
+            "category_id": "screen-balance",
+            "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+            "record_sha256": "4dc4d7d14af73536dd06610a4fe1e4a377f2c4f49d9467227e8453f1b812e801",
+            "catalog_version": "0.1.0"
+          }
+        }
+      ]
+    }
+  ],
+  "habit_check": {
+    "http_status": 200,
+    "roundtrip_ms": 10708.0,
+    "goal_id": "hqg-5d28bd73d0976002912510ad",
+    "parent_instruction": "",
+    "status": "ready",
+    "outcome": "ready",
+    "message": "These habits passed local checks. Review them before adding.",
+    "source": {
+      "source_id": "screen-balance--agree-stopping-point--a11-13",
+      "concept_id": "screen-balance--agree-stopping-point",
+      "category_id": "screen-balance",
+      "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+      "record_sha256": "3b216c5dbb64f7274c8edb53fc9c4cc8cc67a132255da956024c6bba9d92df38",
+      "catalog_version": "0.1.0"
+    },
+    "timings": {
+      "total_ms": 10613.9,
+      "writer_ms": 10605.1
+    },
+    "logical_calls": 1,
+    "provider_attempts": {
+      "habit_generation": 1
+    },
+    "token_usage": {
+      "input_tokens": 2751,
+      "total_tokens": 3836,
+      "output_tokens": 1085
+    },
+    "validation_failures": [],
+    "failure_code": null,
+    "validation_mode": "local",
+    "drafts": [
+      {
+        "cue": "When you are about to start entertainment media.",
+        "why": "A clear endpoint can make the ending more understandable; it is a practical family plan, not a validated treatment.",
+        "steps": [
+          "Name one episode ending, save point, or other clear endpoint.",
+          "Tell your adult which endpoint you choose.",
+          "Say or show your agreed stopping point."
+        ],
+        "title": "Choose a Media Stopping Point",
+        "kid_hint": "You can choose an ending that makes sense for your plan.",
+        "strategy": "Offer a few realistic options and agree together before entertainment begins.",
+        "emoji_key": "clock",
+        "help_text": "You can ask for help, take a break, watch, or choose not to practice; essential access stays available.",
+        "kid_title": "Choose Where to Stop",
+        "materials": [
+          "screen",
+          "game"
+        ],
+        "completion": "You agreed on one stopping point.",
+        "recurrence": "weekly",
+        "description": "Before entertainment media starts, agree on a clear, feasible stopping event, such as an episode ending or game save point.",
+        "instruction": "Choose one place or event where you will stop.",
+        "parent_setup": "Check that the endpoint fits the activity, family needs, and any accessibility uses; keep essential communication available.",
+        "parent_guidance": {
+          "coach": "Ask what ending feels workable and confirm the shared plan before media starts.",
+          "if_hard": "Offer a familiar endpoint, a smaller planning step, watching, declining, or a break without penalty.",
+          "observe": "Notice whether the agreed endpoint was clear and adjust the plan or adult support afterward.",
+          "prepare": "Keep the activity and a few feasible endpoint options in view."
+        },
+        "estimated_seconds": 120
+      },
+      {
+        "cue": "When you are planning to start entertainment media.",
+        "why": "Sharing relevant needs helps the family plan around commitments and access without treating all media use alike.",
+        "steps": [
+          "Think of one save, friend commitment, or access need.",
+          "Tell your adult or use your usual communication method.",
+          "Agree on how that need fits the stopping plan."
+        ],
+        "title": "Share What You Need Before Stopping",
+        "kid_hint": "Your needs can be part of the plan.",
+        "strategy": "Listen for practical needs, then work together on a feasible endpoint and support.",
+        "emoji_key": "speech_balloon",
+        "help_text": "You can ask for help, take a break, watch, or choose not to practice; essential access stays available.",
+        "kid_title": "Share What You Need",
+        "materials": [
+          "screen",
+          "game"
+        ],
+        "completion": "You shared one need that affects your stopping plan.",
+        "recurrence": "weekly",
+        "description": "Before entertainment media starts, tell your adult about a save, friend commitment, or accessibility need that affects ending.",
+        "instruction": "Tell your adult one thing you need for a workable ending.",
+        "parent_setup": "Make space to discuss saves, online commitments, and accessibility; do not count assistive communication as entertainment.",
+        "parent_guidance": {
+          "coach": "Listen without rushing, then help find a realistic endpoint that respects essential access.",
+          "if_hard": "Offer choices, a communication aid, watching, declining, or a break without pressure or penalty.",
+          "observe": "Notice which practical needs shaped the plan, without judging disclosure or independence.",
+          "prepare": "Be available to hear about saves, online commitments, and accessibility needs."
+        },
+        "estimated_seconds": 120
+      },
+      {
+        "cue": "When you are making a plan before entertainment media.",
+        "why": "Agreeing on support in advance can make the plan clearer and avoids relying on surprise or blame.",
+        "steps": [
+          "Choose a reminder or other help that would work for you.",
+          "Tell your adult what support you want.",
+          "Agree when or how that support will happen."
+        ],
+        "title": "Agree on Ending Support",
+        "kid_hint": "You can help decide what support works for you.",
+        "strategy": "Ask what reminder or transition help would be useful, then confirm the plan together.",
+        "emoji_key": "calendar",
+        "help_text": "You can ask for help, take a break, watch, or choose not to practice; essential access stays available.",
+        "kid_title": "Choose Ending Support",
+        "materials": [
+          "clock",
+          "screen"
+        ],
+        "completion": "You agreed on one kind of ending support.",
+        "recurrence": "weekly",
+        "description": "Before entertainment media starts, agree on one useful form of adult support for reaching the stopping point.",
+        "instruction": "Choose one kind of help for ending your media.",
+        "parent_setup": "Be ready to provide the agreed support and adjust settings or autoplay when needed.",
+        "parent_guidance": {
+          "coach": "Confirm the requested support and follow through without changing the agreed endpoint unexpectedly.",
+          "if_hard": "Offer one simple support choice, watching, declining, or a break without penalty.",
+          "observe": "Notice whether the support was available and revise it if the plan proved unrealistic.",
+          "prepare": "Consider available reminders and platform settings before discussing support options."
+        },
+        "estimated_seconds": 120
+      }
+    ]
+  },
+  "cleanup": true,
+  "budget_before": "1.1704149400000000237438",
+  "source_goals_before": 7,
+  "budget_after": "1.2364928600000000237438",
+  "source_goals_after": 7
+}

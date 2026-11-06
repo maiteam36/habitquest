@@ -1,0 +1,288 @@
+{
+  "synthetic_only": true,
+  "measurement": "In-process ASGI request elapsed time; includes real providers and DB, excludes local TCP and browser paint",
+  "models": [
+    {
+      "role": "coach",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 1600,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "output_safety",
+      "provider_group": "legacy",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "api_mode": "chat_completions",
+      "reasoning_effort": "low",
+      "max_output_tokens": 4000,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "habit_generation",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 2800,
+      "timeout_seconds": 45.0,
+      "max_retries": 0
+    }
+  ],
+  "normal_operations": {
+    "coach": [
+      "coach",
+      "output_safety"
+    ],
+    "habit_generation": [
+      "habit_generation"
+    ],
+    "retrieval": [
+      "embedding",
+      "pinecone"
+    ]
+  },
+  "coach_checks": [
+    {
+      "case": "homework_help",
+      "text": "Homework stalls when the child gets stuck. They need help asking a clear question.",
+      "quality_criterion": "Direct help-seeking or learning-question goal; concrete, supported advice.",
+      "http_status": 200,
+      "roundtrip_ms": 7386.5,
+      "reply": "A specific learning question looks like the closest fit for helping Example child show exactly where they’re stuck. Try a low-pressure prompt: “Point to the part that’s confusing, and I’ll help.” They can point, say a few words, or ask you to read it—no polished question or repeated failed attempts needed. First check that the directions are clear and the work has been taught; this practice is a scaffold, not a proven result for this exact habit. A rehearsed “I’m stuck” signal could also help when finding words feels hard.",
+      "outcome": "recommendations",
+      "mapped_by": "ai",
+      "logical_calls": 2,
+      "generation_passes": 1,
+      "safety_revision": false,
+      "risk_status": "local_only",
+      "provider_attempts": {
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 1,
+        "output_safety": 1
+      },
+      "timings": {
+        "preparation_ms": 0.7516415789723396,
+        "generation_ms": 3902.9052508994937,
+        "local_validation_ms": 1.4239735901355743,
+        "safety_ms": 1316.9572185724974,
+        "embedding_ms": 1503.6935545504093,
+        "pinecone_ms": 485.7475785538554,
+        "hydration_ms": 3.5245241597294807,
+        "masking_ms": 1.1128392070531845,
+        "risk_ms": 0.04540197551250458,
+        "retrieval_ms": 1994.4458780810237,
+        "total_ms": 7226.7955262213945,
+        "context_ms": 64.67489246279001,
+        "persistence_ms": 52.09856294095516,
+        "request_ms": 7343.670714646578
+      },
+      "token_usage": {
+        "input_tokens": 6408,
+        "output_tokens": 473,
+        "total_tokens": 6881
+      },
+      "goals": [
+        {
+          "goal_id": "hqg-50761831c722d74df4c56162",
+          "title": "Signal that a task is stuck",
+          "description": "Use a rehearsed cross-context help or pause signal at a concrete obstacle, without needing to explain it first.",
+          "reason": "A simple stuck signal is a useful alternative when the child cannot yet explain the obstacle; it is an adult-scaffolded support, not an evaluated exact habit.",
+          "source_ref": {
+            "source_id": "frustration-flexibility--signal-stuck--a6-8",
+            "concept_id": "frustration-flexibility--signal-stuck",
+            "category_id": "frustration-flexibility",
+            "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+            "record_sha256": "4c5fa010c38459141d9697113712568264731d9dbc2fd87e12a9c95c05aa87a5",
+            "catalog_version": "0.1.0"
+          }
+        },
+        {
+          "goal_id": "hqg-3485089313fb8646f1695921",
+          "title": "Ask a specific learning question",
+          "description": "Practice indicating the exact part of a learning activity that needs explanation or support.",
+          "reason": "Directly fits the parent’s request for help asking a clear question; adult scaffolding can make it easier to identify one confusing part without requiring precise speech. The supporting research is broad and mechanism-informed, not a trial;",
+          "source_ref": {
+            "source_id": "learning-homework--ask-about-one-stuck-spot--a6-8",
+            "concept_id": "learning-homework--ask-about-one-stuck-spot",
+            "category_id": "learning-homework",
+            "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+            "record_sha256": "e6a14ece5f09159bd1fa6a11612c9ba3affe53a4d6929fe4b570d468ae78c12f",
+            "catalog_version": "0.1.0"
+          }
+        }
+      ]
+    }
+  ],
+  "habit_check": {
+    "http_status": 200,
+    "roundtrip_ms": 12778.2,
+    "goal_id": "hqg-50761831c722d74df4c56162",
+    "status": "unavailable",
+    "outcome": "unavailable",
+    "message": "I couldn't finish checking these habits. Please try a new request.",
+    "source": {
+      "source_id": "frustration-flexibility--signal-stuck--a6-8",
+      "concept_id": "frustration-flexibility--signal-stuck",
+      "category_id": "frustration-flexibility",
+      "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+      "record_sha256": "4c5fa010c38459141d9697113712568264731d9dbc2fd87e12a9c95c05aa87a5",
+      "catalog_version": "0.1.0"
+    },
+    "timings": {
+      "total_ms": 12675.1,
+      "writer_ms": 12671.5
+    },
+    "logical_calls": 2,
+    "provider_attempts": {
+      "habit_generation": 2
+    },
+    "token_usage": {
+      "input_tokens": 3005,
+      "total_tokens": 4158,
+      "output_tokens": 1153
+    },
+    "validation_failures": [
+      {
+        "code": "child_fields_address_parent",
+        "stage": "writer",
+        "attempt": 1
+      },
+      {
+        "code": "child_fields_address_parent",
+        "stage": "writer",
+        "attempt": 2
+      }
+    ],
+    "failure_code": "child_fields_address_parent",
+    "drafts": []
+  },
+  "cleanup": true,
+  "synthetic_parsed_calls": [
+    {
+      "role": "coach",
+      "parsed": {
+        "mode": "advice",
+        "reply": "A specific learning question looks like the closest fit for helping Child A show exactly where they’re stuck. Try a low-pressure prompt: “Point to the part that’s confusing, and I’ll help.” They can point, say a few words, or ask you to read it—no polished question or repeated failed attempts needed. First check that the directions are clear and the work has been taught; this practice is a scaffold, not a proven result for this exact habit. A rehearsed “I’m stuck” signal could also help when finding words feels hard.",
+        "question": "",
+        "goals": [
+          {
+            "goal_id": "hqg-3485089313fb8646f1695921",
+            "reason": "Directly fits the parent’s request for help asking a clear question; adult scaffolding can make it easier to identify one confusing part without requiring precise speech. The supporting research is broad and mechanism-informed, not a trial;"
+          },
+          {
+            "goal_id": "hqg-50761831c722d74df4c56162",
+            "reason": "A simple stuck signal is a useful alternative when the child cannot yet explain the obstacle; it is an adult-scaffolded support, not an evaluated exact habit."
+          }
+        ]
+      }
+    },
+    {
+      "role": "output_safety",
+      "parsed": {
+        "safe": true,
+        "problems": []
+      },
+      "display_payload": {
+        "reply": "A specific learning question looks like the closest fit for helping Child A show exactly where they’re stuck. Try a low-pressure prompt: “Point to the part that’s confusing, and I’ll help.” They can point, say a few words, or ask you to read it—no polished question or repeated failed attempts needed. First check that the directions are clear and the work has been taught; this practice is a scaffold, not a proven result for this exact habit. A rehearsed “I’m stuck” signal could also help when finding words feels hard.",
+        "question": "",
+        "cards": [],
+        "goals": [
+          {
+            "goal_id": "hqg-3485089313fb8646f1695921",
+            "reason": "Directly fits the parent’s request for help asking a clear question; adult scaffolding can make it easier to identify one confusing part without requiring precise speech. The supporting research is broad and mechanism-informed, not a trial;"
+          },
+          {
+            "goal_id": "hqg-50761831c722d74df4c56162",
+            "reason": "A simple stuck signal is a useful alternative when the child cannot yet explain the obstacle; it is an adult-scaffolded support, not an evaluated exact habit."
+          }
+        ],
+        "changes": []
+      }
+    },
+    {
+      "role": "habit_generation",
+      "parsed": {
+        "items": [
+          {
+            "title": "Signal when a task feels stuck",
+            "kid_title": "Ask for help or a pause",
+            "kid_hint": "You can ask before the task feels too big.",
+            "description": "When a familiar activity has a hard part, use a help or pause signal. An adult will respond without waiting for an explanation.",
+            "instruction": "Show or say help or pause when a task gets stuck.",
+            "why": "A signal lets an adult know you need help or a pause, even before you can explain what is hard.",
+            "parent_setup": "Check that the child understands the activity and can reach its materials. Put help and pause pictures within reach, or agree on a gesture or AAC button. Be ready to respond right away.",
+            "strategy": "Rehearse the signal during an easy activity. When the child signals, offer help or a break first. Explore the hard part together only if the child wants.",
+            "estimated_seconds": 45,
+            "steps": [
+              "During an easy activity, practice showing or saying help or pause.",
+              "When a familiar task gets stuck, respond to the signal right away.",
+              "Offer help or a break; explore the hard part together only if the child wants."
+            ],
+            "materials": [
+              "Optional help and pause pictures, an AAC button, or an agreed gesture."
+            ],
+            "help_text": "You can show or say “Help me, please” or “Pause.” You do not have to explain first.",
+            "cue": "A familiar activity reaches a concrete obstacle, such as a hard-to-open container or a confusing step.",
+            "completion": "The child practices or uses a help or pause signal, with or without adult support. A pause, observation, or decline is not a failure.",
+            "parent_guidance": {
+              "prepare": "Make sure the task and materials are accessible, and that help is available. Keep any signal pictures or device within reach.",
+              "coach": "Respond to the signal first. Offer assistance or a break without requiring repeated tries or a precise explanation.",
+              "if_hard": "Offer the help signal as the only option, model it, or pause the task. Never delay needed help or a break.",
+              "observe": "Notice whether the adult response provides useful support. If not, adjust the response or task; do not ask the child to signal harder."
+            },
+            "recurrence": "weekly"
+          }
+        ]
+      }
+    },
+    {
+      "role": "habit_generation",
+      "parsed": {
+        "items": [
+          {
+            "title": "Signal for help or a pause",
+            "kid_title": "Ask for help or a pause",
+            "kid_hint": "You can ask before a task feels too big.",
+            "description": "Practice a simple help or pause signal during an easy activity, then use it when a familiar task gets stuck.",
+            "instruction": "When something feels stuck, show your help or pause signal.",
+            "why": "A signal can help you get support without explaining everything first.",
+            "parent_setup": "Check that the child understands the activity and can access its instructions and materials. Keep help and pause pictures, an AAC button, or an agreed gesture within reach. Be ready to respond right away.",
+            "strategy": "Rehearse the signal during an easy everyday activity. When the child signals, offer help or a pause first. If the child wants, explore the obstacle together and adjust the task or your support.",
+            "estimated_seconds": 45,
+            "steps": [
+              "Practice showing a help or pause signal during an easy activity.",
+              "When you signal during a hard part, an adult will help or offer a pause.",
+              "If you want, point to the hard part together."
+            ],
+            "materials": [
+              "Help or pause picture, AAC button, or agreed gesture (optional)"
+            ],
+            "help_text": "You do not have to explain first. An adult can help you point to the hard part.",
+            "cue": "When a familiar activity has a concrete hard part, the adult can remind the child that help or a pause is available.",
+            "completion": "The child uses, practices, or observes a help or pause signal, or chooses to pause or decline.",
+            "parent_guidance": {
+              "prepare": "Choose a familiar, easy activity for rehearsal. Check that instructions and materials are accessible and that help is available.",
+              "coach": "Say, “Help or a pause is available. You do not have to explain first.” Respond to the signal without delay.",
+              "if_hard": "Offer the help signal, a pause, or a gesture or picture choice. Do not require failed attempts or an explanation before helping.",
+              "observe": "Notice whether the signal brings useful assistance. If it does not, change your response or the task; do not practice signaling harder while withholding help."
+            },
+            "recurrence": "daily"
+          }
+        ]
+      }
+    }
+  ],
+  "budget_before": "0.5009560600000000137438",
+  "source_goals_before": 0,
+  "budget_after": "0.5657339800000000137438",
+  "source_goals_after": 2
+}

@@ -1,0 +1,224 @@
+{
+  "provider_calls": 0,
+  "input_capture": "action-usability-live-2026-11-01T22-09-40-872Z-f0e1dd0b",
+  "scope": "Offline copy/source-rule compatibility only; not new-model success or full current API-schema compatibility. Legacy parent-guidance lists joined without losing text; added current child aliases. Daily placeholder used only to isolate copy validation; legacy recurrence values below remain unsupported where not daily/weekly and are never converted in production. No source files modified.",
+  "summary": {
+    "actions": 26,
+    "copy_passed": 26,
+    "copy_failure_codes": {},
+    "legacy_recurrences": {
+      "as_needed": 26
+    },
+    "complete_preposition_endings_previously_rejected": 0
+  },
+  "actions": [
+    {
+      "packet": "boundary-age8/round-1.json",
+      "action_index": 0,
+      "age": 8,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "boundary-age8/round-1.json",
+      "action_index": 1,
+      "age": 8,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age13/round-1.json",
+      "action_index": 0,
+      "age": 13,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age13/round-1.json",
+      "action_index": 1,
+      "age": 13,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age13/round-2.json",
+      "action_index": 0,
+      "age": 13,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age13/round-2.json",
+      "action_index": 1,
+      "age": 13,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age13/round-3.json",
+      "action_index": 0,
+      "age": 13,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age13/round-3.json",
+      "action_index": 1,
+      "age": 13,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age3/round-1.json",
+      "action_index": 0,
+      "age": 3,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age3/round-1.json",
+      "action_index": 1,
+      "age": 3,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age3/round-2.json",
+      "action_index": 0,
+      "age": 3,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age3/round-2.json",
+      "action_index": 1,
+      "age": 3,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age3/round-3.json",
+      "action_index": 0,
+      "age": 3,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age3/round-3.json",
+      "action_index": 1,
+      "age": 3,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age5/round-1.json",
+      "action_index": 0,
+      "age": 5,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age5/round-1.json",
+      "action_index": 1,
+      "age": 5,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age5/round-2.json",
+      "action_index": 0,
+      "age": 5,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age5/round-2.json",
+      "action_index": 1,
+      "age": 5,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age5/round-3.json",
+      "action_index": 0,
+      "age": 5,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "feelings-age5/round-3.json",
+      "action_index": 1,
+      "age": 5,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "homework-age13/round-1.json",
+      "action_index": 0,
+      "age": 13,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "homework-age13/round-1.json",
+      "action_index": 1,
+      "age": 13,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "reading-age9/round-1.json",
+      "action_index": 0,
+      "age": 9,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "reading-age9/round-1.json",
+      "action_index": 1,
+      "age": 9,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "transition-age3/round-1.json",
+      "action_index": 0,
+      "age": 3,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    },
+    {
+      "packet": "transition-age3/round-1.json",
+      "action_index": 1,
+      "age": 3,
+      "source_resolved": true,
+      "copy_failure_code": null,
+      "previous_preposition_heuristic_would_reject": false
+    }
+  ]
+}

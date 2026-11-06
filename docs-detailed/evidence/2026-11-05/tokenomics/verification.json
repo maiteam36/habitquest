@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-05",
+  "backend_tests_passed": 1004,
+  "backend_statement_branch_coverage_percent": 100,
+  "frontend_tests_passed": 144,
+  "mocked_browser_flows_passed": 4,
+  "lint_format_types": "passed",
+  "frontend_build": "passed; existing bundle-size warning",
+  "local_http": {
+    "ready": 200,
+    "/v1/admin/me": 200,
+    "/v1/admin/tokenomics/config": 200,
+    "/v1/admin/tokenomics/prices": 200,
+    "/v1/admin/models": 200,
+    "/v1/admin/metrics": 200,
+    "/v1/admin/generations": 200,
+    "/v1/admin/audit": 200,
+    "admin_family_isolation": true,
+    "caregiver_budget": true,
+    "costs_hidden": true,
+    "retired_cap": 410,
+    "secret_projection_check": true,
+    "admin_page": 200,
+    "paid_provider_calls": 0
+  },
+  "paid_provider_calls": 0
+}

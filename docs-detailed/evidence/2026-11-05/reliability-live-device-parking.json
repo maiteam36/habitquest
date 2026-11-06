@@ -1,0 +1,281 @@
+{
+  "synthetic_only": true,
+  "planned_max_planning_reservation_usd": 0.0289192,
+  "measurement": "In-process ASGI request elapsed time; includes real providers and DB, excludes local TCP and browser paint",
+  "models": [
+    {
+      "role": "coach",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 1600,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "output_safety",
+      "provider_group": "legacy",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "api_mode": "chat_completions",
+      "reasoning_effort": "low",
+      "max_output_tokens": 4000,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "habit_generation",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 2800,
+      "timeout_seconds": 45.0,
+      "max_retries": 0
+    }
+  ],
+  "normal_operations": {
+    "coach": [
+      "coach",
+      "output_safety"
+    ],
+    "habit_generation": [
+      "habit_generation"
+    ],
+    "retrieval": [
+      "embedding",
+      "pinecone"
+    ]
+  },
+  "coach_checks": [],
+  "habit_check": {
+    "http_status": 200,
+    "roundtrip_ms": 10347.0,
+    "goal_id": "hqg-cfe08383bcfff20330b73a9f",
+    "parent_instruction": "",
+    "status": "ready",
+    "outcome": "ready",
+    "message": "These habits passed local checks. Review them before adding.",
+    "source": {
+      "source_id": "screen-balance--shared-device-parking--a11-13",
+      "concept_id": "screen-balance--shared-device-parking",
+      "category_id": "screen-balance",
+      "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+      "record_sha256": "4dc4d7d14af73536dd06610a4fe1e4a377f2c4f49d9467227e8453f1b812e801",
+      "catalog_version": "0.1.0"
+    },
+    "timings": {
+      "total_ms": 10232.7,
+      "writer_ms": 10142.0
+    },
+    "logical_calls": 1,
+    "provider_attempts": {
+      "habit_generation": 1
+    },
+    "token_usage": {
+      "input_tokens": 2728,
+      "total_tokens": 3697,
+      "output_tokens": 969
+    },
+    "validation_failures": [],
+    "failure_code": null,
+    "validation_mode": "local",
+    "drafts": [
+      {
+        "cue": "When your family-agreed shared moment begins.",
+        "why": "A concrete pause supports a family-agreed shared moment while keeping essential access available.",
+        "steps": [
+          "Pause your video.",
+          "Place your device in the agreed spot."
+        ],
+        "title": "Pause and park entertainment",
+        "kid_hint": "You can keep important device access available.",
+        "strategy": "Model the family agreement and make exceptions clear without treating parking as punishment.",
+        "emoji_key": "headphones",
+        "help_text": "You can ask for help, watch, decline, or take a break; essential access stays available.",
+        "kid_title": "Pause a video",
+        "materials": [
+          "device",
+          "agreed spot"
+        ],
+        "completion": "You paused your video and parked your device.",
+        "recurrence": "weekly",
+        "description": "Practice pausing entertainment and placing the device in the family-agreed spot for a shared moment.",
+        "instruction": "Pause your video and park your device.",
+        "parent_setup": "Agree on the moment and reachable parking spot; keep communication, medical, safety and learning access available.",
+        "parent_guidance": {
+          "coach": "Model parking your own device and help save or pause entertainment if needed.",
+          "if_hard": "Offer assistance, watching, declining, or a break without penalty; keep essential access available.",
+          "observe": "Notice whether the agreed pause worked for the moment and revise if it blocked a real need.",
+          "prepare": "Choose a reachable, safe spot and agree which entertainment use pauses for this moment."
+        },
+        "estimated_seconds": 60
+      },
+      {
+        "cue": "When the agreed pause for a shared family moment begins.",
+        "why": "Saving first can make the agreed entertainment pause clearer and more manageable.",
+        "steps": [
+          "Save your game if you can.",
+          "Place your device in the agreed spot."
+        ],
+        "title": "Save and park a game",
+        "kid_hint": "You can ask for help with saving or parking.",
+        "strategy": "Keep the agreement specific to the moment, and help with the device when requested.",
+        "emoji_key": "books",
+        "help_text": "You can ask for help, watch, decline, or take a break; essential access stays available.",
+        "kid_title": "Save your game",
+        "materials": [
+          "device",
+          "agreed spot"
+        ],
+        "completion": "You saved your game and parked your device.",
+        "recurrence": "weekly",
+        "description": "Practice saving an entertainment game before placing the device in the agreed spot for a family-agreed moment.",
+        "instruction": "Save your game, then park your device.",
+        "parent_setup": "Confirm the game can be saved and the spot is accessible; preserve required learning and assistive functions.",
+        "parent_guidance": {
+          "coach": "Offer help with saving or placing the device while keeping needed functions available.",
+          "if_hard": "Suggest a smaller step, assistance, watching, declining, or a break without penalty.",
+          "observe": "Notice whether saving and parking fit the moment; adjust the agreement if needed.",
+          "prepare": "Check that the game has a save option and the device can be parked safely."
+        },
+        "estimated_seconds": 60
+      },
+      {
+        "cue": "When an agreed device pause could affect an essential use.",
+        "why": "Speaking up helps the family agreement account for essential communication, medical, safety, or learning needs.",
+        "steps": [
+          "Notice if parking would affect an essential use.",
+          "Tell your adult what needs to stay available."
+        ],
+        "title": "Signal an access adjustment",
+        "kid_hint": "Your essential communication and safety needs matter.",
+        "strategy": "Respond calmly to access concerns and revise the agreement rather than pressuring device parking.",
+        "emoji_key": "speech_balloon",
+        "help_text": "You can ask for help, use another way to communicate, watch, decline, or take a break.",
+        "kid_title": "Ask for an adjustment",
+        "materials": [
+          "device"
+        ],
+        "completion": "You told your adult what essential use needs to stay available.",
+        "recurrence": "weekly",
+        "description": "Practice telling an adult when parking entertainment would affect an essential device use, so the family can adjust the agreement.",
+        "instruction": "Tell your adult if parking affects an essential use.",
+        "parent_setup": "Explain which uses must stay available and agree how an adjustment can be requested privately.",
+        "parent_guidance": {
+          "coach": "Listen without arguing and help keep required communication, medical, safety, or learning access available.",
+          "if_hard": "Accept another communication method, a smaller practice, watching, declining, or a break without penalty.",
+          "observe": "Notice access concerns and revise the family agreement so needed functions remain available.",
+          "prepare": "Make a private, accessible way to communicate an essential access concern."
+        },
+        "estimated_seconds": 30
+      }
+    ]
+  },
+  "cleanup": true,
+  "synthetic_parsed_calls": [
+    {
+      "role": "habit_generation",
+      "parsed": {
+        "items": [
+          {
+            "emoji_key": "headphones",
+            "title": "Pause and park entertainment",
+            "kid_title": "Pause a video",
+            "kid_hint": "You can keep important device access available.",
+            "description": "Practice pausing entertainment and placing the device in the family-agreed spot for a shared moment.",
+            "instruction": "Pause your video and park your device.",
+            "why": "A concrete pause supports a family-agreed shared moment while keeping essential access available.",
+            "parent_setup": "Agree on the moment and reachable parking spot; keep communication, medical, safety and learning access available.",
+            "strategy": "Model the family agreement and make exceptions clear without treating parking as punishment.",
+            "estimated_seconds": 60,
+            "steps": [
+              "Pause your video.",
+              "Place your device in the agreed spot."
+            ],
+            "materials": [
+              "device",
+              "agreed spot"
+            ],
+            "help_text": "You can ask for help, watch, decline, or take a break; essential access stays available.",
+            "cue": "When your family-agreed shared moment begins.",
+            "completion": "You paused your video and parked your device.",
+            "parent_guidance": {
+              "prepare": "Choose a reachable, safe spot and agree which entertainment use pauses for this moment.",
+              "coach": "Model parking your own device and help save or pause entertainment if needed.",
+              "if_hard": "Offer assistance, watching, declining, or a break without penalty; keep essential access available.",
+              "observe": "Notice whether the agreed pause worked for the moment and revise if it blocked a real need."
+            },
+            "recurrence": "weekly"
+          },
+          {
+            "emoji_key": "books",
+            "title": "Save and park a game",
+            "kid_title": "Save your game",
+            "kid_hint": "You can ask for help with saving or parking.",
+            "description": "Practice saving an entertainment game before placing the device in the agreed spot for a family-agreed moment.",
+            "instruction": "Save your game, then park your device.",
+            "why": "Saving first can make the agreed entertainment pause clearer and more manageable.",
+            "parent_setup": "Confirm the game can be saved and the spot is accessible; preserve required learning and assistive functions.",
+            "strategy": "Keep the agreement specific to the moment, and help with the device when requested.",
+            "estimated_seconds": 60,
+            "steps": [
+              "Save your game if you can.",
+              "Place your device in the agreed spot."
+            ],
+            "materials": [
+              "device",
+              "agreed spot"
+            ],
+            "help_text": "You can ask for help, watch, decline, or take a break; essential access stays available.",
+            "cue": "When the agreed pause for a shared family moment begins.",
+            "completion": "You saved your game and parked your device.",
+            "parent_guidance": {
+              "prepare": "Check that the game has a save option and the device can be parked safely.",
+              "coach": "Offer help with saving or placing the device while keeping needed functions available.",
+              "if_hard": "Suggest a smaller step, assistance, watching, declining, or a break without penalty.",
+              "observe": "Notice whether saving and parking fit the moment; adjust the agreement if needed."
+            },
+            "recurrence": "weekly"
+          },
+          {
+            "emoji_key": "speech_balloon",
+            "title": "Signal an access adjustment",
+            "kid_title": "Ask for an adjustment",
+            "kid_hint": "Your essential communication and safety needs matter.",
+            "description": "Practice telling an adult when parking entertainment would affect an essential device use, so the family can adjust the agreement.",
+            "instruction": "Tell your adult if parking affects an essential use.",
+            "why": "Speaking up helps the family agreement account for essential communication, medical, safety, or learning needs.",
+            "parent_setup": "Explain which uses must stay available and agree how an adjustment can be requested privately.",
+            "strategy": "Respond calmly to access concerns and revise the agreement rather than pressuring device parking.",
+            "estimated_seconds": 30,
+            "steps": [
+              "Notice if parking would affect an essential use.",
+              "Tell your adult what needs to stay available."
+            ],
+            "materials": [
+              "device"
+            ],
+            "help_text": "You can ask for help, use another way to communicate, watch, decline, or take a break.",
+            "cue": "When an agreed device pause could affect an essential use.",
+            "completion": "You told your adult what essential use needs to stay available.",
+            "parent_guidance": {
+              "prepare": "Make a private, accessible way to communicate an essential access concern.",
+              "coach": "Listen without arguing and help keep required communication, medical, safety, or learning access available.",
+              "if_hard": "Accept another communication method, a smaller practice, watching, declining, or a break without penalty.",
+              "observe": "Notice access concerns and revise the family agreement so needed functions remain available."
+            },
+            "recurrence": "weekly"
+          }
+        ]
+      }
+    }
+  ],
+  "budget_before": "1.2364928600000000237438",
+  "source_goals_before": 7,
+  "budget_after": "1.2654120600000000237438",
+  "source_goals_after": 7
+}

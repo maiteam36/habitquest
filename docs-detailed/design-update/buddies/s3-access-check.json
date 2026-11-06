@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-11-05T23:16:22.079Z",
+  "method": "Anonymous HTTPS GET with Range bytes=0-7 and cross-origin Origin header",
+  "source_inventory": "hq-infra-setup/asset-publishing/upload-manifest.json, family=buddy",
+  "bucket": "habbit-quest-assets",
+  "prefix": "buddies/catalog-0.1.0/art-0.1.0/9717ad52fb16/",
+  "canonical_buddy_ids": 24,
+  "objects_checked": 48,
+  "objects_passed": 48,
+  "http_statuses": { "206": 48 },
+  "checks": [
+    "PNG signature",
+    "Content-Range total equals published byte count",
+    "Content-Type image/png"
+  ],
+  "access_control_allow_origin": { "*": 48 },
+  "cache_control": { "public,max-age=31536000,immutable": 48 },
+  "failures": [],
+  "limits": "Range reads verify public delivery and headers, not full-object checksums or unrelated bucket policy/object state.",
+  "aws_configuration_writes": false,
+  "model_calls": 0
+}

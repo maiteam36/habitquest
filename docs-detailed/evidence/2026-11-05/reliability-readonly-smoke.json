@@ -1,0 +1,26 @@
+{
+  "verification": "Read-only local HTTP; no model calls or family mutations",
+  "api_status": 200,
+  "frontend_status": 200,
+  "incremental_goal_and_habit_routes": true,
+  "plans": [
+    {
+      "capacity": {
+        "limit": 6,
+        "used": 6,
+        "remaining": 0
+      },
+      "source_goals_saved": 1
+    },
+    {
+      "capacity": {
+        "limit": 6,
+        "used": 0,
+        "remaining": 6
+      },
+      "source_goals_saved": 0
+    }
+  ],
+  "budget_cap_usd": 5,
+  "budget_accounted_usd": 1.1704149400000001
+}

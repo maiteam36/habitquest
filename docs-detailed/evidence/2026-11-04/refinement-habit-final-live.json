@@ -1,0 +1,157 @@
+{
+  "synthetic_only": true,
+  "measurement": "In-process ASGI request elapsed time; includes real providers and DB, excludes local TCP and browser paint",
+  "models": [
+    {
+      "role": "coach",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 1600,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "output_safety",
+      "provider_group": "legacy",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "api_mode": "chat_completions",
+      "reasoning_effort": "low",
+      "max_output_tokens": 4000,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "habit_generation",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 2800,
+      "timeout_seconds": 45.0,
+      "max_retries": 0
+    }
+  ],
+  "normal_operations": {
+    "coach": [
+      "coach",
+      "output_safety"
+    ],
+    "habit_generation": [
+      "habit_generation"
+    ],
+    "retrieval": [
+      "embedding",
+      "pinecone"
+    ]
+  },
+  "coach_checks": [],
+  "habit_check": {
+    "http_status": 200,
+    "roundtrip_ms": 6890.1,
+    "goal_id": "hqg-50761831c722d74df4c56162",
+    "status": "ready",
+    "outcome": "ready",
+    "message": "These habits passed local checks. Review them before adding.",
+    "source": {
+      "source_id": "frustration-flexibility--signal-stuck--a6-8",
+      "concept_id": "frustration-flexibility--signal-stuck",
+      "category_id": "frustration-flexibility",
+      "snapshot_id": "22cec20089fee49e76ee76861b01a199e05f765ec19a2f1911eddef1088828df",
+      "record_sha256": "4c5fa010c38459141d9697113712568264731d9dbc2fd87e12a9c95c05aa87a5",
+      "catalog_version": "0.1.0"
+    },
+    "timings": {
+      "total_ms": 6768.4,
+      "writer_ms": 6657.4
+    },
+    "logical_calls": 1,
+    "provider_attempts": {
+      "habit_generation": 1
+    },
+    "token_usage": {
+      "input_tokens": 2372,
+      "total_tokens": 2915,
+      "output_tokens": 543
+    },
+    "validation_failures": [],
+    "failure_code": null,
+    "validation_mode": "local",
+    "drafts": [
+      {
+        "cue": "When you meet a tricky part of a familiar activity.",
+        "why": "A clear signal can help you communicate that you need support without explaining first. This is a practical, adult-scaffolded support; its effectiveness has not been established.",
+        "steps": [
+          "Choose a help signal, such as a gesture or picture.",
+          "Show your signal when you get stuck."
+        ],
+        "title": "Signal when a task gets stuck",
+        "kid_hint": "You can ask before a task feels too big.",
+        "strategy": "Rehearse the signal during an easy activity, then respond first with help or a break. Do not require repeated tries or an explanation before helping. If the response is not useful, adapt your support or the task.",
+        "help_text": "You can get help or take a break at any time. You can watch, try a smaller practice, or stop; you do not have to explain first.",
+        "kid_title": "Signal for help",
+        "materials": [
+          "Help picture"
+        ],
+        "completion": "You showed your help signal.",
+        "recurrence": "weekly",
+        "description": "Practice using a help or pause signal at a concrete obstacle in a familiar activity. Check first that the task and materials are accessible, and make sure help is available.",
+        "instruction": "Show your help signal when you get stuck.",
+        "parent_setup": "Choose a familiar, easy activity and check that the instructions and materials are accessible. Put a help or pause picture within reach, or agree on a gesture or AAC button. Be ready to respond right away.",
+        "parent_guidance": {
+          "coach": "Rehearse the signal during an easy activity. When you see it, offer help or a break first; investigate the obstacle together only if the child wants.",
+          "if_hard": "Offer help, a smaller practice, watching, declining, or a break without penalty. Help and breaks are never conditional on signaling or explaining.",
+          "observe": "Notice whether the signal brings useful assistance. Adapt your response or the task if needed; do not score feelings, compliance, or independence.",
+          "prepare": "Make sure the task and materials are accessible, place the help signal within reach, and be available to respond promptly."
+        },
+        "estimated_seconds": 45
+      }
+    ]
+  },
+  "cleanup": true,
+  "synthetic_parsed_calls": [
+    {
+      "role": "habit_generation",
+      "parsed": {
+        "items": [
+          {
+            "title": "Signal when a task gets stuck",
+            "kid_title": "Signal for help",
+            "kid_hint": "You can ask before a task feels too big.",
+            "description": "Practice using a help or pause signal at a concrete obstacle in a familiar activity. Check first that the task and materials are accessible, and make sure help is available.",
+            "instruction": "Show your help signal when you get stuck.",
+            "why": "A clear signal can help you communicate that you need support without explaining first. This is a practical, adult-scaffolded support; its effectiveness has not been established.",
+            "parent_setup": "Choose a familiar, easy activity and check that the instructions and materials are accessible. Put a help or pause picture within reach, or agree on a gesture or AAC button. Be ready to respond right away.",
+            "strategy": "Rehearse the signal during an easy activity, then respond first with help or a break. Do not require repeated tries or an explanation before helping. If the response is not useful, adapt your support or the task.",
+            "estimated_seconds": 45,
+            "steps": [
+              "Choose a help signal, such as a gesture or picture.",
+              "Show your signal when you get stuck."
+            ],
+            "materials": [
+              "Help picture"
+            ],
+            "help_text": "You can get help or take a break at any time. You can watch, try a smaller practice, or stop; you do not have to explain first.",
+            "cue": "When you meet a tricky part of a familiar activity.",
+            "completion": "You showed your help signal.",
+            "parent_guidance": {
+              "prepare": "Make sure the task and materials are accessible, place the help signal within reach, and be available to respond promptly.",
+              "coach": "Rehearse the signal during an easy activity. When you see it, offer help or a break first; investigate the obstacle together only if the child wants.",
+              "if_hard": "Offer help, a smaller practice, watching, declining, or a break without penalty. Help and breaks are never conditional on signaling or explaining.",
+              "observe": "Notice whether the signal brings useful assistance. Adapt your response or the task if needed; do not score feelings, compliance, or independence."
+            },
+            "recurrence": "weekly"
+          }
+        ]
+      }
+    }
+  ],
+  "budget_before": "0.5657339800000000137438",
+  "source_goals_before": 2,
+  "budget_after": "0.5933531800000000137438",
+  "source_goals_after": 2
+}

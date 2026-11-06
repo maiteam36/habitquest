@@ -1,0 +1,9 @@
+{
+  "api_ready_status": 200,
+  "frontend_status": 200,
+  "stream_parameters": 4,
+  "stream_error_status": 404,
+  "cors_origin_verified": true,
+  "provider_calls": 0,
+  "database_writes": 0
+}

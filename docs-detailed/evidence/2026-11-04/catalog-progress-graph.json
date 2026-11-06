@@ -1,0 +1,12 @@
+{
+  "stages": [
+    "masking",
+    "preparation",
+    "generation",
+    "safety",
+    "complete"
+  ],
+  "mocked_model_calls": 2,
+  "paid_calls": 0,
+  "context_propagated_through_executor_and_langgraph": true
+}

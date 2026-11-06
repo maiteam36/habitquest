@@ -1,0 +1,118 @@
+{
+  "recorded_on": "2026-11-03",
+  "read_only": true,
+  "children": [
+    {
+      "alias": "local-child-1",
+      "global_active_catalog_habits": 41,
+      "age_suitable_catalog_habits": 38,
+      "unlocked_tier": 1,
+      "eligible_catalog_habits": 19,
+      "plan_status_counts": {
+        "active": 5
+      },
+      "non_removed_plan_count": 5,
+      "maximum_plan_habits": 6,
+      "available_add_slots": 1,
+      "previously_shown_count": 0,
+      "eligible_not_planned_or_shown": 14,
+      "goals": [
+        {
+          "goal_id": "bedtime",
+          "eligible": 3,
+          "not_planned_or_shown": 3
+        },
+        {
+          "goal_id": "feelings",
+          "eligible": 2,
+          "not_planned_or_shown": 0
+        },
+        {
+          "goal_id": "meals",
+          "eligible": 5,
+          "not_planned_or_shown": 4
+        },
+        {
+          "goal_id": "screens",
+          "eligible": 2,
+          "not_planned_or_shown": 0
+        },
+        {
+          "goal_id": "responsibility",
+          "eligible": 1,
+          "not_planned_or_shown": 1
+        },
+        {
+          "goal_id": "homework",
+          "eligible": 1,
+          "not_planned_or_shown": 1
+        },
+        {
+          "goal_id": "listening",
+          "eligible": 3,
+          "not_planned_or_shown": 3
+        },
+        {
+          "goal_id": "mornings",
+          "eligible": 2,
+          "not_planned_or_shown": 2
+        }
+      ],
+      "message_counts": [
+        {
+          "role": "coach",
+          "n": 2,
+          "no_match": 2
+        },
+        {
+          "role": "parent",
+          "n": 2,
+          "no_match": 0
+        }
+      ],
+      "suggestion_counts": [
+        {
+          "source": "coach",
+          "kind": "add",
+          "status": "accepted",
+          "n": 5
+        },
+        {
+          "source": "coach",
+          "kind": "add",
+          "status": "dismissed",
+          "n": 7
+        },
+        {
+          "source": "planner",
+          "kind": "add",
+          "status": "pending",
+          "n": 1
+        },
+        {
+          "source": "planner",
+          "kind": "resume",
+          "status": "pending",
+          "n": 2
+        }
+      ],
+      "recent_parent_keyword_summary": [
+        {
+          "most_recent_parent_message_rank": 1,
+          "keyword_goals": [
+            "responsibility",
+            "homework"
+          ],
+          "eligible_remaining_for_these_goals": 2
+        },
+        {
+          "most_recent_parent_message_rank": 2,
+          "keyword_goals": [
+            "meals"
+          ],
+          "eligible_remaining_for_these_goals": 4
+        }
+      ]
+    }
+  ]
+}

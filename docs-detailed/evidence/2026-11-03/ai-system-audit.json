@@ -1,0 +1,93 @@
+{
+  "recorded_on": "2026-11-03",
+  "source_baseline": "831f4617acd5b36e67b1e431089a5f381f9dfd7e",
+  "methods": [
+    "source review",
+    "installed-package inspection",
+    "public bundled guidance counts",
+    "prior synthetic timing evidence",
+    "synthetic in-memory mock transport legacy-budget probe"
+  ],
+  "live_inference_calls_for_this_review": 0,
+  "database_mutations_for_this_review": 0,
+  "packages": {
+    "langchain": "1.4.7",
+    "langchain-core": "1.7.3",
+    "langchain-openai": "1.7.3",
+    "langgraph": "1.2.19",
+    "langsmith": "0.14.16",
+    "openai": "3.42.0",
+    "httpx": "0.28.1"
+  },
+  "runtime": {
+    "ai_mode": "openai",
+    "coach_engine": "crew",
+    "openai_model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "openai_small_model": "",
+    "openai_safety_model": "",
+    "crew_roles": "",
+    "ai_timeout_seconds": 30.0,
+    "coach_timeout_seconds": 65.0,
+    "ai_daily_limit": 100,
+    "trace_coach": false
+  },
+  "active_crew": {
+    "llm_roles": [
+      "triage",
+      "research",
+      "progress",
+      "planner",
+      "fit",
+      "safety"
+    ],
+    "deterministic_nodes": [
+      "decide"
+    ],
+    "application_graph_nodes_excluding_start_end": 7,
+    "pre_graph_llm_responsibilities": [
+      "parent_risk"
+    ],
+    "executed_create_agent_objects": 0,
+    "max_normal_logical_calls": 7,
+    "max_logical_calls_with_one_revision": 10,
+    "logical_call_formula": "4 + research_brief_if_passages + progress_if_data + fit_if_additions",
+    "transport_retries_excluded_from_counts": true
+  },
+  "guidance": {
+    "documents": 16,
+    "chunks": 56,
+    "body_characters_min": 97,
+    "body_characters_median": 179.0,
+    "body_characters_max": 333,
+    "largest_six_bodies_combined_characters": 1829,
+    "note": "Character counts exclude titles/refs and do not estimate model tokens or duration."
+  },
+  "legacy_mock_probe": {
+    "model": "synthetic mock only",
+    "observed_agent_invocations": 2,
+    "agent_calls_in_each_invocation": [
+      6,
+      6
+    ],
+    "observed_fit_calls": 2,
+    "observed_agent_and_fit_calls_total": 14,
+    "ordinary_additional_parent_risk_call": 1,
+    "constructed_total_with_parent_risk": 15,
+    "note": "The 15 total is the constructed agent/fit result plus the separate ordinary risk call, not a live provider measurement. The six-call middleware limit is per nested invocation."
+  },
+  "proposed_counts": {
+    "separate_risk_triage_planner_fit_safety": {
+      "normal_add_card_path": 5,
+      "one_full_revision": 8
+    },
+    "separate_risk_triage_planner_joint_critic": {
+      "normal_add_card_path": 4,
+      "one_full_revision": 6
+    },
+    "joint_risk_intent_planner_joint_critic": {
+      "normal_add_card_path": 3,
+      "one_full_revision": 5
+    },
+    "measured_latency_for_proposals": false
+  }
+}

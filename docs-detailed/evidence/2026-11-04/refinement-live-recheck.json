@@ -1,0 +1,102 @@
+{
+  "synthetic_only": true,
+  "measurement": "HTTP round-trip to the local backend; not browser paint latency",
+  "models": [
+    {
+      "role": "parent_risk",
+      "provider_group": "legacy",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "api_mode": "chat_completions",
+      "reasoning_effort": "low",
+      "max_output_tokens": 4000,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "coach",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 1600,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "output_safety",
+      "provider_group": "legacy",
+      "provider_host": "api.tokenfactory.us-north1.nebius.com",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "api_mode": "chat_completions",
+      "reasoning_effort": "low",
+      "max_output_tokens": 4000,
+      "timeout_seconds": 30.0,
+      "max_retries": 1
+    },
+    {
+      "role": "habit_generation",
+      "provider_group": "planning_openai",
+      "provider_host": "api.openai.com",
+      "model": "gpt-6-luna",
+      "api_mode": "responses",
+      "reasoning_effort": "low",
+      "max_output_tokens": 2800,
+      "timeout_seconds": 45.0,
+      "max_retries": 0
+    }
+  ],
+  "coach_checks": [
+    {
+      "case": "homework_help",
+      "text": "Homework stalls when the child gets stuck. They need help asking a clear question.",
+      "quality_criterion": "Direct help-seeking or learning-question goal; concrete, supported advice.",
+      "http_status": 200,
+      "roundtrip_ms": 16087.1,
+      "reply": "I couldn't finish checking my response. Please try again in a moment.",
+      "outcome": "safety_rejected",
+      "mapped_by": "manual",
+      "logical_calls": 5,
+      "generation_passes": 2,
+      "safety_revision": true,
+      "risk_status": "no_risk",
+      "provider_attempts": {
+        "parent_risk": 1,
+        "embedding": 1,
+        "pinecone": 1,
+        "coach": 2,
+        "output_safety": 2
+      },
+      "timings": {
+        "preparation_ms": 0.7421877235174179,
+        "generation_ms": 6065.206787548959,
+        "local_validation_ms": 3.8558701053261757,
+        "safety_ms": 4839.540450833738,
+        "embedding_ms": 1596.7062953859568,
+        "pinecone_ms": 551.2813506647944,
+        "hydration_ms": 3.9193928241729736,
+        "masking_ms": 1.2547606602311134,
+        "risk_ms": 2882.9926876351237,
+        "retrieval_ms": 2154.354871250689,
+        "total_ms": 15955.071871168911,
+        "context_ms": 56.5172852948308,
+        "persistence_ms": 32.320866361260414,
+        "request_ms": 16044.00123283267
+      },
+      "token_usage": {
+        "input_tokens": 8024,
+        "output_tokens": 975,
+        "total_tokens": 8999
+      },
+      "goals": []
+    }
+  ],
+  "habit_check": null,
+  "cleanup": true,
+  "budget_before": "0.4637973400000000137438",
+  "source_goals_before": 0,
+  "stopped_after_coach_failure": true,
+  "budget_after": "0.5009560600000000137438",
+  "source_goals_after": 0
+}
